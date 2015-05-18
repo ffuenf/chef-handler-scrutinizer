@@ -32,7 +32,7 @@ class Chef
       end
 
       def report
-        return unless run_status.failed?
+        return if run_status.failed?
         if @access_token.nil?
           Chef::Log.warn('You need an access token to let Chef report successfull runs to Scrutinizer')
           fail ArgumentError, 'Missing Scrutinizer Access Token'
